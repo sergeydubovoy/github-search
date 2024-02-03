@@ -32,7 +32,7 @@ export const ERRORS_TEXT: {
   noStars: string;
 } = {
   noRepositoryTitle: "No repository title",
-  noRepositoriesFound: "Oops... Something went wrong. Try again later.",
+  noRepositoriesFound: "No repositories found",
   noForks: "0",
   noStars: "0",
 };
