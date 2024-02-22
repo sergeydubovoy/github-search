@@ -1,5 +1,5 @@
 import { autorun, makeAutoObservable, runInAction } from "mobx";
-import { TRepositoryCard } from "../components/RepositoryCard/RepositoryCard";
+import { TRepositoryCard } from "../components/repository-card/RepositoryCard";
 import { getRepositories } from "../api/GitHubAPI";
 
 class MainStore {

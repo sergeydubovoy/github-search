@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../style/styles";
+import { Colors } from "../../../style/styles";
 
 type TCopyButton = {
   title: string;

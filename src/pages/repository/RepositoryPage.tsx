@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
-import { StyledLink } from "../../components/RepositoryCard/RepositoryCardStyles";
+import { StyledLink } from "../../components/repository-card/RepositoryCardStyles";
 import MainStore from "../../store/MainStore";
 import { BUTTONS_TEXT, ERRORS_TEXT } from "../../utils/constants";
-import { RepositoryCardMore } from "../../components/RepositoryCardMore/RepositoryCardMore";
-import { Container } from "../SearchPage/SearchPageStyles";
+import { RepositoryCardMore } from "../../components/repository-card-more/RepositoryCardMore";
+import { Container } from "../search/SearchPageStyles";
 
 export const RepositoryPage = observer(() => {
   const { repositoryId } = useParams();
@@ -12,7 +12,7 @@ export const RepositoryPage = observer(() => {
   if (!repositoryId) {
     return (
       <>
-        <StyledLink to={"/github-search-smartway/"}>Back</StyledLink>{" "}
+        <StyledLink to={"/github-search/"}>Back</StyledLink>{" "}
         <div>{ERRORS_TEXT.noRepositoriesFound}</div>
       </>
     );
@@ -25,9 +25,7 @@ export const RepositoryPage = observer(() => {
   if (!repositoryCard) {
     return (
       <>
-        <StyledLink to={"/github-search-smartway/"}>
-          {BUTTONS_TEXT.back}
-        </StyledLink>{" "}
+        <StyledLink to={"/github-search/"}>{BUTTONS_TEXT.back}</StyledLink>
         <div>{ERRORS_TEXT.noRepositoriesFound}</div>
       </>
     );
@@ -35,9 +33,7 @@ export const RepositoryPage = observer(() => {
 
   return (
     <Container>
-      <StyledLink to={"/github-search-smartway/"}>
-        {BUTTONS_TEXT.back}
-      </StyledLink>
+      <StyledLink to={"/github-search/"}>{BUTTONS_TEXT.back}</StyledLink>
       <RepositoryCardMore key={repositoryId} repositoryProps={repositoryCard} />
     </Container>
   );

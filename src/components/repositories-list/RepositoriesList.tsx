@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import {
   RepositoryCard,
   TRepositoryCard,
-} from "../RepositoryCard/RepositoryCard";
+} from "../repository-card/RepositoryCard";
 import MainStore from "../../store/MainStore";
 import { ERRORS_TEXT } from "../../utils/constants";
 

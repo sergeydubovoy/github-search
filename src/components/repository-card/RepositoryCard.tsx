@@ -1,8 +1,7 @@
 import { observer } from "mobx-react-lite";
 import MainStore from "../../store/MainStore";
-import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 import { ERRORS_TEXT, BUTTONS_TEXT } from "../../utils/constants";
-import { RepositoryLink } from "../RepositoryLink/RepositoryLink";
+import { RepositoryLink } from "../repository-link/RepositoryLink";
 import {
   RepositoryButtonsWrapper,
   RepositoryCardWrapper,
@@ -13,10 +12,11 @@ import {
   StatWrapper,
   StyledLink,
 } from "./RepositoryCardStyles";
-import { FavoriteIconFilled } from "../../assets/FavoriteIcons/FavoriteIconFilled";
-import { FavoriteIconOutline } from "../../assets/FavoriteIcons/FavoriteIconOutline";
+import { FavoriteIcon } from "../../assets/FavoriteIcon";
 import { ForkIcon } from "../../assets/ForkIcon";
 import { StarIcon } from "../../assets/StarIcon";
+import { FavoriteButton } from "../buttons/favorite-button/FavoriteButton";
+import { Colors } from "../../style/styles";
 
 export type TRepositoryCard = {
   id: number | string;
@@ -74,17 +74,19 @@ export const RepositoryCard: React.FC<TRepositoryProps> = observer(
         </RepositoryInfoWrapper>
         <RepositoryButtonsWrapper>
           <FavoriteButton onClick={() => MainStore.toggleFavorite(repository)}>
-            {MainStore.favoriteRepositories.some(
-              (favoriteRepository) => favoriteRepository.id === repository.id
-            ) ? (
-              <FavoriteIconFilled />
-            ) : (
-              <FavoriteIconOutline />
-            )}{" "}
+            <FavoriteIcon
+              fill={"none"}
+              stroke={
+                MainStore.favoriteRepositories.some(
+                  (favoriteRepository) =>
+                    favoriteRepository.id === repository.id
+                )
+                  ? Colors.brightBlue
+                  : Colors.grey
+              }
+            />
           </FavoriteButton>
-          <StyledLink
-            to={`/github-search-smartway/repository/${repository.id}`}
-          >
+          <StyledLink to={`/github-search/repository/${repository.id}`}>
             {BUTTONS_TEXT.more}
           </StyledLink>
         </RepositoryButtonsWrapper>

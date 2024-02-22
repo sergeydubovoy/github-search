@@ -2,14 +2,14 @@ import clipboardCopy from "clipboard-copy";
 import debounce from "lodash.debounce";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
-import { CopyButton } from "../../components/CopyButton/CopyButton";
-import { FavoriteRepositoriesList } from "../../components/FavoriteRepositoriesList/FavoriteRepositoriesList";
-import { Heading } from "../../components/Heading/Heading";
-import { Input } from "../../components/Input/Input";
-import { Loader } from "../../components/Loader/Loader";
-import { RepositoriesList } from "../../components/RepositoriesList/RepositoriesList";
-import { SearchForm } from "../../components/SearchForm/SearchForm";
-import { SelectorPerPage } from "../../components/SelectorPerPage/SelectorPerPage";
+import { CopyButton } from "../../components/buttons/copy-button/CopyButton";
+import { FavoriteRepositoriesList } from "../../components/favorite-repositories-list/FavoriteRepositoriesList";
+import { Heading } from "../../components/heading/Heading";
+import { Input } from "../../components/input/Input";
+import { Loader } from "../../components/loader/Loader";
+import { RepositoriesList } from "../../components/repositories-list/RepositoriesList";
+import { SearchForm } from "../../components/search-form/SearchForm";
+import { SelectorPerPage } from "../../components/selector-per-page/SelectorPerPage";
 import MainStore from "../../store/MainStore";
 import {
   BUTTONS_TEXT,

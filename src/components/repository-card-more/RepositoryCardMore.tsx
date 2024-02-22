@@ -1,9 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { TRepositoryCard } from "../RepositoryCard/RepositoryCard";
+import { TRepositoryCard } from "../repository-card/RepositoryCard";
 
 import MainStore from "../../store/MainStore";
-import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
-import { RepositoryLink } from "../RepositoryLink/RepositoryLink";
+import { RepositoryLink } from "../repository-link/RepositoryLink";
 import {
   DescriptionText,
   DescriptionWrapper,
@@ -21,11 +20,12 @@ import {
   DESCRIPTION_TITLES,
   ERRORS_TEXT,
 } from "../../utils/constants";
-import { FavoriteIconFilled } from "../../assets/FavoriteIcons/FavoriteIconFilled";
-import { FavoriteIconOutline } from "../../assets/FavoriteIcons/FavoriteIconOutline";
+import { FavoriteIcon } from "../../assets/FavoriteIcon";
 import { StarIcon } from "../../assets/StarIcon";
 import { ForkIcon } from "../../assets/ForkIcon";
-import { ListTitle } from "../../pages/SearchPage/SearchPageStyles";
+import { ListTitle } from "../../pages/search/SearchPageStyles";
+import { FavoriteButton } from "../buttons/favorite-button/FavoriteButton";
+import { Colors } from "../../style/styles";
 
 type TRepositoryMoreInfo = {
   id: string | number;
@@ -86,20 +86,32 @@ export const RepositoryCardMore: React.FC<TRepositoryMoreInfoProps> = observer(
               <FavoriteButton
                 onClick={() => MainStore.toggleFavorite(repositoryProps)}
               >
-                {MainStore.favoriteRepositories.some(
-                  (favoriteRepository) =>
-                    favoriteRepository.id === repositoryProps.id
-                ) ? (
-                  <FavoriteButtonInner>
-                    {BUTTONS_TEXT.addedToFavorite}
-                    <FavoriteIconFilled />
-                  </FavoriteButtonInner>
-                ) : (
-                  <FavoriteButtonInner>
-                    {BUTTONS_TEXT.addToFavorite}
-                    <FavoriteIconOutline />
-                  </FavoriteButtonInner>
-                )}
+                <FavoriteButtonInner>
+                  {MainStore.favoriteRepositories.some(
+                    (favoriteRepository) =>
+                      favoriteRepository.id === repositoryProps.id
+                  )
+                    ? BUTTONS_TEXT.addedToFavorite
+                    : BUTTONS_TEXT.addToFavorite}
+                  <FavoriteIcon
+                    fill={
+                      MainStore.favoriteRepositories.some(
+                        (favoriteRepository) =>
+                          favoriteRepository.id === repositoryProps.id
+                      )
+                        ? Colors.brightBlue
+                        : "none"
+                    }
+                    stroke={
+                      MainStore.favoriteRepositories.some(
+                        (favoriteRepository) =>
+                          favoriteRepository.id === repositoryProps.id
+                      )
+                        ? Colors.brightBlue
+                        : Colors.grey
+                    }
+                  />
+                </FavoriteButtonInner>
               </FavoriteButton>
             </InfoWrapper>
           </RepositoryInfoWrapper>
