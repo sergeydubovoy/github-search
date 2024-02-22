@@ -74,7 +74,6 @@ export const SearchPage: React.FC = observer(() => {
       <SelectorPerPage onChange={handlePerPage} />
       <RepositoriesListWrapper>
         <ListWrapper>
-          <Loader />
           <ListTitle>{LIST_TITLES.result}</ListTitle>
           {MainStore.isLoading ? <Loader /> : <RepositoriesList />}
           {MainStore.repositories.length === 0 &&
