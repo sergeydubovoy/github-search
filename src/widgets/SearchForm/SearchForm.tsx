@@ -12,17 +12,13 @@ const StyledSearchForm = styled.form`
   flex-direction: row;
   margin: 0 auto;
   min-width: 500px;
-  width: 960px;
+  width: 500px;
   height: auto;
   gap: 10px;
   padding: 10px;
   border: 1px solid #dfe3e6;
   border-radius: 10px;
   background: #ffffff;
-
-  @media (max-width: 1080px) {
-    width: 100%;
-  }
 `;
 
 export const SearchForm: React.FC<TSearchForm> = observer(

@@ -8,7 +8,6 @@ export const RepositoryCardWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
-  width: 100%;
   max-width: 470px;
   height: 100px;
   border: 1px solid ${Colors.softGrey};
