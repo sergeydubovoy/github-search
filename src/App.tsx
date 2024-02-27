@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { SearchPage } from "./pages/search/SearchPage";
-import { RepositoryPage } from "./pages/repository/RepositoryPage";
+import { SearchPage } from "./pages/SearchPage/SearchPage";
+import { RepositoryPage } from "./pages/RepositoryPage/RepositoryPage";
 
 function App() {
   return (

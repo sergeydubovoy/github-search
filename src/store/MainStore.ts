@@ -1,6 +1,6 @@
 import { autorun, makeAutoObservable, runInAction } from "mobx";
-import { TRepositoryCard } from "../components/repository-card/RepositoryCard";
-import { getRepositories } from "../api/GitHubAPI";
+import { TRepositoryCard } from "../entities/RepositoryCard/RepositoryCard";
+import { getRepositories } from "../shared/api/GitHubAPI";
 
 class MainStore {
   title: string = "";
@@ -40,7 +40,7 @@ class MainStore {
     this.isLoading = true;
     const loadedRepositories = await getRepositories(title, perPage);
     runInAction(() => {
-      this.repositories = loadedRepositories.items;
+      this.repositories = loadedRepositories;
       this.isLoading = false;
     });
   }

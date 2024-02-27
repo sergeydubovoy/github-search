@@ -1,22 +1,18 @@
 import { observer } from "mobx-react-lite";
-import styled from "styled-components";
 
 export type TFavoriteIcon = {
   stroke: string;
   fill: string;
+  width: string;
+  height: string;
 };
 
-const StyledFavoriteIcon = styled.svg`
-  width: 24px;
-  height: 24px;
-`;
-
-export const FavoriteIcon = observer(({ fill, stroke }: TFavoriteIcon) => {
-  return (
-    <>
-      <StyledFavoriteIcon
-        width="800px"
-        height="800px"
+export const FavoriteIcon = observer(
+  ({ fill, stroke, width, height }: TFavoriteIcon) => {
+    return (
+      <svg
+        width={width}
+        height={height}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +23,7 @@ export const FavoriteIcon = observer(({ fill, stroke }: TFavoriteIcon) => {
           stroke={stroke}
           strokeWidth="2"
         />
-      </StyledFavoriteIcon>
-    </>
-  );
-});
+      </svg>
+    );
+  }
+);
